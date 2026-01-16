@@ -143,40 +143,39 @@ body {
   z-index: 999;
 
   display: flex;
-  justify-content: center;
-  gap: 30px;
-
+  justify-content: space-between;
+  padding: 12px 50px; /* space on left and right edges */
   background: white;
-  padding: 12px 0;
   border-bottom: 1px solid #eee;
 }
 
 .categories button {
   background: none;
-  border: none;
-  padding: 5px 0;
+  border: 2px solid transparent; /* optional border */
+  padding: 10px 20px; /* more rectangular shape */
   font-size: 15px;
-  font-weight: 500;
+  font-weight: bold;
+  text-transform: uppercase;
   color: var(--dark);
   cursor: pointer;
   position: relative;
+  flex: 1;
+  margin: 0 10px;
+  border-radius: 12px; /* rounded edges */
+  transition: all 0.3s ease;
+}
+
+.categories button:hover {
+  background: var(--gradient); /* gradient background on hover */
+  color: white;                /* text changes to white */
+  transform: translateY(-3px); /* subtle lift effect */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* optional shadow for depth */
 }
 
 .categories button::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 3px;
-  background: var(--gradient);
-  transition: 0.3s;
-  border-radius: 5px;
+  display: none; /* remove the old underline effect */
 }
 
-.categories button:hover::after {
-  width: 100%;
-}
 
 /* =========================
    HERO SECTION
@@ -227,6 +226,55 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+/* =========================
+   OUR STORE SECTION
+========================= */
+.our-store {
+  padding: 60px 50px;
+  background: var(--light);
+  text-align: center;
+}
+
+.our-store h2 {
+  font-size: 32px;
+  color: var(--red);
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.store-images {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* slightly bigger gap for bigger boxes */
+  flex-wrap: wrap; 
+}
+
+.store-img {
+  width: 280px;   /* increased from 220px */
+  height: 200px;  /* increased from 150px */
+  overflow: hidden;
+  border-radius: 20px; /* slightly more rounded for premium feel */
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.store-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+/* Hover pop-out effect */
+.store-img:hover {
+  transform: scale(1.08); /* slightly stronger pop effect for larger boxes */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* deeper shadow */
+}
+
+.store-img:hover img {
+  transform: scale(1.12);
+}
+
 
 /* =========================
    PRODUCTS
