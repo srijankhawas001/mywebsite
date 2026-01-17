@@ -79,14 +79,47 @@ body {
   width: 100%;
 }
 
-/* SEARCH */
-.search {
-  padding: 8px 14px;
-  width: 220px;
-  border-radius: 20px;
-  border: none;
-  outline: none;
+/* Search container */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
+
+/* Search input */
+.search {
+  padding: 10px 45px 10px 15px; /* leave space for the icon on the right */
+  width: 300px;                 /* default width */
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+/* Expand animation on focus */
+.search:focus {
+  width: 360px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Search icon image */
+.search-icon-img {
+  position: absolute;
+  right: 12px;              
+  top: 50%;                   
+  transform: translateY(-50%);
+  width: 20px;           
+  height: 20px;          
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Optional hover effect on icon */
+.search-icon-img:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
 
 /* AUTH SECTION */
 .auth {
@@ -137,7 +170,7 @@ body {
 ========================= */
 .categories {
   position: fixed;
-  top: 64px;
+  top: 80px;
   left: 0;
   width: 100%;
   z-index: 999;
@@ -152,18 +185,25 @@ body {
 .categories button {
   background: none;
   border: 2px solid transparent; /* optional border */
-  padding: 10px 20px; /* more rectangular shape */
+  padding: 10px 20px;
   font-size: 15px;
   font-weight: bold;
   text-transform: uppercase;
   color: var(--dark);
   cursor: pointer;
   position: relative;
-  flex: 1;
+  flex: unset; /* remove flex:1 so buttons don’t stretch */
   margin: 0 10px;
-  border-radius: 12px; /* rounded edges */
+  border-radius: 25px; /* smooth oval */
+   border: none;
   transition: all 0.3s ease;
+
+  /* Center the text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .categories button:hover {
   background: var(--gradient); /* gradient background on hover */
@@ -174,6 +214,43 @@ body {
 
 .categories button::after {
   display: none; /* remove the old underline effect */
+}
+/* =========================
+   CATEGORY DROPDOWNS
+========================= */
+.category {
+  position: relative; /* dropdown positioned relative to button */
+  display: inline-block;
+}
+
+.category .dropdown {
+  display: none; /* hidden by default */
+  position: absolute; /* below the button */
+  top: 100%; /* immediately under button */
+  left: 0;
+  background: #fff;
+  min-width: 200px;
+  border-radius: 12px;
+  padding: 10px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.category .dropdown li {
+  list-style: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.category .dropdown li:hover {
+  background: var(--gradient);
+  color: white;
+}
+
+/* Show dropdown on hover */
+.category:hover .dropdown {
+  display: block;
 }
 
 
@@ -377,4 +454,178 @@ footer {
   color: white;
   padding: 40px;
   margin-top: 50px;
+}
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* TABLET (max-width: 1024px) */
+@media (max-width: 1024px) {
+
+  .navbar {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .navbar nav {
+    gap: 20px;
+  }
+
+  .search {
+    width: 180px;
+  }
+
+  .categories {
+    padding: 12px 20px;
+  }
+
+  .categories button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .store-img {
+    width: 240px;
+    height: 180px;
+  }
+}
+
+/* MOBILE (max-width: 768px) */
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 160px;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .navbar nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .search {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .auth {
+    gap: 15px;
+  }
+
+  /* CATEGORIES */
+  .categories {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .categories button {
+    flex: unset;
+    width: 45%;
+    margin: 5px 0;
+  }
+
+  /* HERO */
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  /* STORE SECTION */
+  .store-images {
+    gap: 20px;
+  }
+
+  .store-img {
+    width: 100%;
+    max-width: 320px;
+    height: 200px;
+  }
+
+  /* PRODUCTS */
+  .products {
+    padding: 30px 20px;
+  }
+
+  .product-list {
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* FOOTER */
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+}
+
+/* SMALL MOBILE (max-width: 480px) */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .categories button {
+    width: 100%;
+  }
+
+  .shop-now {
+    width: 100%;
+  }
+}
+/* =========================
+   BRAND / LOGO
+========================= */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.brand-logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.brand-text {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
 }

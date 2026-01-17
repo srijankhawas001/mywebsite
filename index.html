@@ -1,0 +1,165 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashok Kirana Pasal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="brand" onclick="goHome()" style="cursor:pointer;">
+      <img src="images/logo1.png" alt="Logo" class="brand-logo">
+      <span class="brand-text">ASHOK KIRANA</span>
+    </div>
+
+    <nav>
+      <a href="#" onclick="goHome()">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search products..." class="search" id="searchBar">
+      <img src="images/searchlogo1.png" alt="Search" class="search-icon-img">
+    </div>
+
+    <div class="auth">
+      <a href="#">Login</a>
+      <button class="cart">🛒 My Cart (<span id="cart-count">0</span>)</button>
+    </div>
+  </header>
+
+  <section class="categories">
+    <div class="category">
+      <button onclick="openCategory('Grocery')">Grocery</button>
+      <ul class="dropdown">
+        <li onclick="openCategory('Grocery')">Rice & Rice Products</li>
+        <li onclick="openCategory('Grocery')">Atta, Flour, Suji</li>
+        <li onclick="openCategory('Grocery')">Dal & Pulses</li>
+        <li onclick="openCategory('Grocery')">Dry fruits </li>
+        <li onclick="openCategory('Grocery')">Mango</li>
+        <li onclick="openCategory('Grocery')">Spices and Masalas </li>
+        <li onclick="openCategory('Grocery')">Cooking Oil and Ghee </li>
+            </ul>
+    </div>
+
+    <div class="category">
+      <button onclick="openCategory('Beverages')">Beverages</button>
+      <ul class="dropdown">
+        <li onclick="openCategory('Beverages')">Tea & Coffee</li>
+        <li onclick="openCategory('Beverages')">Juices</li>
+        <li onclick="openCategory('Beverages')">Soft Drinks</li>
+        <li onclick="openCategory('Beverages')">Hard Drinks</li>
+        <li onclick="openCategory('Beverages')">Energy Drinks</li>
+        <li onclick="openCategory('Beverages')">Milk Drinks </li>
+        <li onclick="openCategory('Beverages')">All Drinks</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <button onclick="openCategory('Household Items')">Household Items</button>
+      <ul class="dropdown">
+        <li onclick="openCategory('Household Items')">Cleaning Supplies</li>
+        <li onclick="openCategory('Household Items')">Detergents</li>
+        <li onclick="openCategory('Household Items')">Dish wash soaps   </li>
+        <li onclick="openCategory('Household Items')">Air Fresheners</li>
+        <li onclick="openCategory('Household Items')">Insects and mosquitp relllers </li>
+        <li onclick="openCategory('Household Items')">Pooja Needs </li>
+        <li onclick="openCategory('Household Items')">tissues and Disposals</li>
+        <li onclick="openCategory('Household Items')">Scrubs and mobs </li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <button onclick="openCategory('Packaged Foods')">Packaged Foods</button>
+      <ul class="dropdown">
+        <li onclick="openCategory('Packaged Foods')">Snacks</li>
+        <li onclick="openCategory('Packaged Foods')">Noodles</li>
+        <li onclick="openCategory('Packaged Foods')">Biscuits and cookies </li>
+        <li onclick="openCategory('Packaged Foods')">chocolates and candies </li>
+        <li onclick="openCategory('Packaged Foods')">Noodles and pickels</li>
+        <li onclick="openCategory('Packaged Foods')">Sause and ketchup </li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <button onclick="openCategory('Beauty Items')">Beauty Items</button>
+      <ul class="dropdown">
+        <li onclick="openCategory('Beauty Items')">Soap</li>
+        <li onclick="openCategory('Beauty Items')">Deodrant and Fragnance</li>
+        <li onclick="openCategory('Beauty Items')">Skincare</li>
+        <li onclick="openCategory('Beauty Items')">Shampoo and conditioner</li>
+        <li onclick="openCategory('Beauty Items')">Body Wash </li>
+        <li onclick="openCategory('Beauty Items')">Handwash</li>
+        
+      </ul>
+    </div>
+  </section>
+
+  <main id="main-content">
+    
+    <div id="home-view">
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Your Trusted Local Kirana Store</h1>
+          <p>Fresh groceries & daily essentials delivered with care.</p>
+          <button class="shop-now" onclick="openCategory('Grocery')">Shop Now</button>
+        </div>
+      </section>
+
+      <section class="our-store">
+        <h2>OUR STORE</h2>
+        <div class="store-images">
+          <div class="store-img"><img src="images/img1.jpeg" alt="Store 1"></div>
+          <div class="store-img"><img src="images/img2.jpg" alt="Store 2"></div>
+          <div class="store-img"><img src="images/img3.jpg" alt="Store 3"></div>
+          <div class="store-img"><img src="images/img4.jpg" alt="Store 4"></div>
+        </div>
+      </section>
+
+      <section class="products">
+        <h2>Popular Products</h2>
+        <div class="product-list">
+          <div class="product-card" onclick="openProductDetail('Grocery', 101)">
+            <div class="product-img"><img src="https://via.placeholder.com/200" alt="Rice"></div>
+            <h3>Rice (1kg)</h3>
+            <p class="price">NRS 150</p>
+            <button class="add-cart">View Details</button>
+          </div>
+          </div>
+      </section>
+    </div>
+
+    <div id="dynamic-view" style="display: none;"></div>
+
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+  <footer>
+    <div>
+      <h4>Terms & Policy</h4>
+      <p>Shipping Policy</p>
+      <p>Return Policy</p>
+    </div>
+    <div><p>© 2026 Ashok Kirana</p></div>
+    <div>
+      <h4>Contact</h4>
+      <p>981932733 | 9827330934</p>
+      <p>Facebook | Instagram</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
