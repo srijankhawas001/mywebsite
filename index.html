@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ashok Kirana Pasal</title>
   <link rel="stylesheet" href="styles.css">
@@ -9,25 +9,29 @@
 <body>
 
   <header class="navbar">
-    <div class="brand" onclick="goHome()" style="cursor:pointer;">
+    <div class="brand" onclick="goHome()">
       <img src="images/logo1.png" alt="Logo" class="brand-logo">
       <span class="brand-text">ASHOK KIRANA</span>
     </div>
 
     <nav>
       <a href="#" onclick="goHome()">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
 
+  
     <div class="search-container">
       <input type="text" placeholder="Search products..." class="search" id="searchBar">
       <img src="images/searchlogo1.png" alt="Search" class="search-icon-img">
+    
+
+      <div class="search-suggestions" id="searchSuggestions"></div>
     </div>
 
     <div class="auth">
-      <a href="#">Login</a>
-      <button class="cart">🛒 My Cart (<span id="cart-count">0</span>)</button>
+      <a href="#" onclick="openLogin()">Login</a>
+      <button class="cart" onclick="openCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
     </div>
   </header>
 
@@ -35,116 +39,134 @@
     <div class="category">
       <button onclick="openCategory('Grocery')">Grocery</button>
       <ul class="dropdown">
-        <li onclick="openCategory('Grocery')">Rice & Rice Products</li>
-        <li onclick="openCategory('Grocery')">Atta, Flour, Suji</li>
-        <li onclick="openCategory('Grocery')">Dal & Pulses</li>
-        <li onclick="openCategory('Grocery')">Dry fruits </li>
-        <li onclick="openCategory('Grocery')">Mango</li>
-        <li onclick="openCategory('Grocery')">Spices and Masalas </li>
-        <li onclick="openCategory('Grocery')">Cooking Oil and Ghee </li>
-            </ul>
+        <li onclick="openCategory('Grocery', 'Rice & Rice Products')">Rice & Rice Products</li>
+        <li onclick="openCategory('Grocery', 'Flour & Grains')">Flour & Grains</li>
+        <li onclick="openCategory('Grocery', 'Dal & Pulses')">Dal & Pulses</li>
+        <li onclick="openCategory('Grocery', 'Spices & Masala')">Spices & Masala</li>
+        <li onclick="openCategory('Grocery', 'Oil & Ghee')">Oil & Ghee</li>
+        <li onclick="openCategory('Grocery', 'Sugar & Salt')">Sugar & Salt</li>
+      </ul>
     </div>
 
     <div class="category">
       <button onclick="openCategory('Beverages')">Beverages</button>
       <ul class="dropdown">
-        <li onclick="openCategory('Beverages')">Tea & Coffee</li>
-        <li onclick="openCategory('Beverages')">Juices</li>
-        <li onclick="openCategory('Beverages')">Soft Drinks</li>
-        <li onclick="openCategory('Beverages')">Hard Drinks</li>
-        <li onclick="openCategory('Beverages')">Energy Drinks</li>
-        <li onclick="openCategory('Beverages')">Milk Drinks </li>
-        <li onclick="openCategory('Beverages')">All Drinks</li>
+        <li onclick="openCategory('Beverages', 'Tea & Coffee')">Tea & Coffee</li>
+        <li onclick="openCategory('Beverages', 'Juice & Energy Drinks')">Juice & Energy Drinks</li>
+        <li onclick="openCategory('Beverages', 'Soft Drinks')">Soft Drinks</li>
+        <li onclick="openCategory('Beverages', 'Water')">Water</li>
       </ul>
     </div>
 
     <div class="category">
       <button onclick="openCategory('Household Items')">Household Items</button>
       <ul class="dropdown">
-        <li onclick="openCategory('Household Items')">Cleaning Supplies</li>
-        <li onclick="openCategory('Household Items')">Detergents</li>
-        <li onclick="openCategory('Household Items')">Dish wash soaps   </li>
-        <li onclick="openCategory('Household Items')">Air Fresheners</li>
-        <li onclick="openCategory('Household Items')">Insects and mosquitp relllers </li>
-        <li onclick="openCategory('Household Items')">Pooja Needs </li>
-        <li onclick="openCategory('Household Items')">tissues and Disposals</li>
-        <li onclick="openCategory('Household Items')">Scrubs and mobs </li>
+        <li onclick="openCategory('Household Items', 'Cleaning')">Cleaning</li>
+        <li onclick="openCategory('Household Items', 'Paper & Utility')">Paper & Utility</li>
       </ul>
     </div>
 
     <div class="category">
       <button onclick="openCategory('Packaged Foods')">Packaged Foods</button>
       <ul class="dropdown">
-        <li onclick="openCategory('Packaged Foods')">Snacks</li>
-        <li onclick="openCategory('Packaged Foods')">Noodles</li>
-        <li onclick="openCategory('Packaged Foods')">Biscuits and cookies </li>
-        <li onclick="openCategory('Packaged Foods')">chocolates and candies </li>
-        <li onclick="openCategory('Packaged Foods')">Noodles and pickels</li>
-        <li onclick="openCategory('Packaged Foods')">Sause and ketchup </li>
+        <li onclick="openCategory('Packaged Foods', 'Biscuits')">Biscuits</li>
+        <li onclick="openCategory('Packaged Foods', 'Snacks')">Snacks</li>
+        <li onclick="openCategory('Packaged Foods', 'Instant Food')">Instant Food</li>
+        <li onclick="openCategory('Packaged Foods', 'Sauces & Spreads')">Sauces & Spreads</li>
       </ul>
     </div>
 
     <div class="category">
       <button onclick="openCategory('Beauty Items')">Beauty Items</button>
       <ul class="dropdown">
-        <li onclick="openCategory('Beauty Items')">Soap</li>
-        <li onclick="openCategory('Beauty Items')">Deodrant and Fragnance</li>
-        <li onclick="openCategory('Beauty Items')">Skincare</li>
-        <li onclick="openCategory('Beauty Items')">Shampoo and conditioner</li>
-        <li onclick="openCategory('Beauty Items')">Body Wash </li>
-        <li onclick="openCategory('Beauty Items')">Handwash</li>
-        
+        <li onclick="openCategory('Beauty Items', 'Soap & Body')">Soap & Body</li>
+        <li onclick="openCategory('Beauty Items', 'Hair Care')">Hair Care</li>
+        <li onclick="openCategory('Beauty Items', 'Oral Care')">Oral Care</li>
+        <li onclick="openCategory('Beauty Items', 'Personal Care')">Personal Care</li>
       </ul>
     </div>
   </section>
 
   <main id="main-content">
-    
     <div id="home-view">
       <section class="hero">
         <div class="hero-text">
           <h1>Your Trusted Local Kirana Store</h1>
           <p>Fresh groceries & daily essentials delivered with care.</p>
-          <button class="shop-now" onclick="openCategory('Grocery')">Shop Now</button>
+          <button class="shop-now" onclick="openAllProducts()">Shop Now</button>
         </div>
       </section>
 
       <section class="our-store">
         <h2>OUR STORE</h2>
         <div class="store-images">
-          <div class="store-img"><img src="images/img1.jpeg" alt="Store 1"></div>
-          <div class="store-img"><img src="images/img2.jpg" alt="Store 2"></div>
-          <div class="store-img"><img src="images/img3.jpg" alt="Store 3"></div>
-          <div class="store-img"><img src="images/img4.jpg" alt="Store 4"></div>
+          <div class="store-img">
+            <img src="images/img1.jpeg" alt="Store 1">
+          </div>
+          <div class="store-img">
+            <img src="images/img2.jpg" alt="Store 2">
+          </div>
+          <div class="store-img">
+            <img src="images/img3.jpg" alt="Store 3">
+          </div>
+          <div class="store-img">
+            <img src="images/img4.jpg" alt="Store 4">
+          </div>
+          <div class="store-img">
+            <img src="images/img5.jpg" alt="Store 5">
+          </div>
         </div>
       </section>
 
       <section class="products">
         <h2>Popular Products</h2>
-        <div class="product-list">
-          <div class="product-card" onclick="openProductDetail('Grocery', 101)">
-            <div class="product-img"><img src="https://via.placeholder.com/200" alt="Rice"></div>
-            <h3>Rice (1kg)</h3>
-            <p class="price">NRS 150</p>
-            <button class="add-cart">View Details</button>
-          </div>
-          </div>
+        <div class="product-list" id="popularProducts"></div>
+        <button class="see-more-btn" onclick="openAllProducts()">See More Products</button>
       </section>
     </div>
 
     <div id="dynamic-view" style="display: none;"></div>
-
   </main>
 
+  <!-- Login Modal -->
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeLogin()">&times;</span>
+      <h2>Welcome Back</h2>
+      <div class="form-group">
+        <label>Email or Phone</label>
+        <input type="text" placeholder="Enter email or phone">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter password">
+      </div>
+      <button class="btn-primary">Sign In</button>
+      <div class="divider">OR</div>
+      <div class="social-login">
+        <button class="social-btn">Gmail</button>
+        <button class="social-btn">Phone</button>
+      </div>
+      <p style="text-align: center; margin-top: 20px;">
+        Don't have an account? <a href="#" style="color: var(--red); font-weight: bold;">Sign Up</a>
+      </p>
+    </div>
+  </div>
 
-
-
-
-
-
-
-
-
+  <!-- Cart Modal -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeCart()">&times;</span>
+      <h2>Shopping Cart</h2>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-total" id="cartTotal">Total: NRS 0</div>
+      <div class="payment-options">
+        <h4>Payment Methods:</h4>
+        <p>✓ Esewa | ✓ Khalti | ✓ Cash on Delivery</p>
+      </div>
+      <button class="btn-primary">Proceed to Checkout</button>
+    </div>
+  </div>
 
   <footer>
     <div>
